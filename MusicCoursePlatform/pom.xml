@@ -109,7 +109,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <argLine>-Xshare:off</argLine>
+                    <argLine>@{argLine} -Xshare:off</argLine>
                 </configuration>
             </plugin>
 
