@@ -1,0 +1,10 @@
+target/*
+!target/*.jar
+*.class
+*.log
+.git
+.idea/
+*.iml
+.DS_Store
+*.md
+Jenkinsfile

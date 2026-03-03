@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controller.TeacherProfileViewController"
+            stylesheets="@../css/styles.css"
+            prefHeight="700.0" prefWidth="1000.0">
+    
+    <!-- Top Navbar -->
+    <top>
+        <HBox styleClass="navbar" alignment="CENTER_LEFT" spacing="20">
+            <Label text="MusicCoursePlatform" styleClass="navbar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Set Availability" styleClass="secondary-button" onAction="#handleBack"/>
+            <ComboBox fx:id="languageCombo" promptText="EN" prefWidth="80"/>
+            <Circle radius="20" style="-fx-fill: #E2E8F0;"/>
+            <Button text="Logout" styleClass="secondary-button" onAction="#handleLogout"/>
+        </HBox>
+    </top>
+    
+    <!-- Main Content -->
+    <center>
+        <HBox style="-fx-background-color: #F5F5F5;" spacing="0">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <!-- Main Card -->
+            <VBox styleClass="card" spacing="20" HBox.hgrow="ALWAYS">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+
+                <HBox spacing="30" alignment="TOP_LEFT" VBox.vgrow="ALWAYS">
+                    <!-- Left Panel - Teacher Info -->
+                    <VBox spacing="16" prefWidth="200">
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Circle radius="25" style="-fx-fill: #CBD5E0;"/>
+                            <Label fx:id="teacherNameLabel" text="Name" styleClass="teacher-name"/>
+                        </HBox>
+
+                        <!-- Add Time Slot -->
+                        <VBox spacing="8">
+                            <Label text="Add New Slot" style="-fx-font-weight: bold;"/>
+                            <ComboBox fx:id="dayCombo" promptText="Select Day" prefWidth="180"/>
+                            <ComboBox fx:id="startTimeCombo" promptText="Start Time" prefWidth="180"/>
+                            <ComboBox fx:id="endTimeCombo" promptText="End Time" prefWidth="180"/>
+                            <Button text="Add Time Slot"
+                                    styleClass="primary-button"
+                                    onAction="#handleAddTimeSlot"
+                                    prefWidth="180"/>
+                        </VBox>
+
+                        <Button text="Set Availability"
+                                styleClass="secondary-button"
+                                onAction="#handleBack"
+                                prefWidth="180"/>
+                    </VBox>
+
+                    <!-- Right Panel - Availability Grid -->
+                    <VBox spacing="20" HBox.hgrow="ALWAYS">
+                        <Label text="My Schedule" styleClass="section-title"/>
+
+                        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+                            <HBox fx:id="availabilityGrid" spacing="16">
+                                <!-- Day columns will be populated dynamically -->
+                            </HBox>
+                        </ScrollPane>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- Bottom Navigation -->
+    <bottom>
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #F5F5F5; -fx-padding: 20;">
+            <Button text="‹" styleClass="back-button" onAction="#handlePrevPage"/>
+            <Label fx:id="weekLabel" text="This Week"/>
+            <Button text="›" styleClass="back-button" onAction="#handleNextPage"/>
+        </HBox>
+    </bottom>
+</BorderPane>
