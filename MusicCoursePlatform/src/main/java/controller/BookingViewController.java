@@ -144,7 +144,7 @@ public class BookingViewController {
         return card;
     }
 
-    private void handleDeleteBooking(Booking booking, TimeSlot slot) {
+     void handleDeleteBooking(Booking booking, TimeSlot slot) {
         booking.setBookingStatus(Booking.STATUS_CANCELLED);
         boolean updated = bookingDAO.update(booking);
 
