@@ -143,6 +143,10 @@
                         </ScrollPane>
                     </VBox>
                 </HBox>
+                <!-- Error/Success Label -->
+                <Label fx:id="errorLabel" visible="false" managed="false"
+                       style="-fx-font-size: 13px;"
+                       wrapText="true"/>
             </VBox>
         </HBox>
     </center>

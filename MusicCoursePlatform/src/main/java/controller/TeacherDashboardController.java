@@ -42,6 +42,7 @@ public class TeacherDashboardController {
     @FXML private ComboBox<String> endTimeCombo;
     @FXML private VBox timeSlotsContainer;
     @FXML private ComboBox<String> languageCombo;
+    @FXML private Label errorLabel;
 
     private TeacherProfileDAO teacherProfileDAO;
     private TimeSlotDAO timeSlotDAO;
@@ -312,23 +313,19 @@ public class TeacherDashboardController {
     }
 
     private void showError(String message) {
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(
-            javafx.scene.control.Alert.AlertType.ERROR
-        );
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+        if (errorLabel != null) {
+            errorLabel.setStyle("-fx-text-fill: #e53e3e;");
+            errorLabel.setText(message);
+            errorLabel.setVisible(true);
+        }
     }
 
     private void showSuccess(String message) {
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(
-            javafx.scene.control.Alert.AlertType.INFORMATION
-        );
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+        if (errorLabel != null) {
+            errorLabel.setStyle("-fx-text-fill: #38a169;");
+            errorLabel.setText(message);
+            errorLabel.setVisible(true);
+        }
     }
 
     @FXML

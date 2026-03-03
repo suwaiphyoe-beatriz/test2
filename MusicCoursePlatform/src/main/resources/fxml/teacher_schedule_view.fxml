@@ -84,10 +84,15 @@
 
     <!-- Bottom Navigation -->
     <bottom>
+    <VBox>
         <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #F5F5F5; -fx-padding: 20;">
             <Button text="‹" styleClass="back-button" onAction="#handlePrevPage"/>
             <Label fx:id="weekLabel" text="This Week"/>
             <Button text="›" styleClass="back-button" onAction="#handleNextPage"/>
         </HBox>
-    </bottom>
+        <Label fx:id="errorLabel" visible="false" managed="false"
+               style="-fx-font-size: 13px;"
+               wrapText="true"/>
+    </VBox>
+</bottom>
 </BorderPane>

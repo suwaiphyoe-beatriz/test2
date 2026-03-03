@@ -250,13 +250,14 @@ public class TeacherProfileViewController {
         }
     }
 
+    @FXML private Label errorLabel;
+
     private void showError(String message) {
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(
-            javafx.scene.control.Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+        if (errorLabel != null) {
+            errorLabel.setStyle("-fx-text-fill: #e53e3e;");
+            errorLabel.setText(message);
+            errorLabel.setVisible(true);
+        }
     }
 }
 
